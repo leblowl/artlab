@@ -15,6 +15,8 @@ class Circle {
     int radius;
     ofColor color;
 
+    std::vector<int> randomVals;
+
     void setup(int x, int y, int i);
     void update();
     void draw1();

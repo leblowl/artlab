@@ -10,9 +10,22 @@ void Circle::setup(int x, int y, int i) {
 
   color.set(ofRandom(255), ofRandom(255), ofRandom(255));
 
+  randomVals = std::vector<int>{
+    (int)ofRandom(1, 10),
+    (int)ofRandom(1, 10),
+    (int)ofRandom(1, 10),
+    (int)ofRandom(1, 10),
+    (int)ofRandom(1, 10),
+    (int)ofRandom(1, 10)
+  };
 }
 
 void Circle::update() {
+  if (ofGetFrameNum() % 15 == 0) {
+    for (int i = 0; i < 6; i++) {
+      randomVals[i] = (int)ofRandom(1, 10);
+    }
+  }
 }
 
 void Circle::draw1() {
@@ -145,23 +158,23 @@ void Circle::draw8() {
       colorInner.b = 0;
     }
     ofSetColor(colorInner);
-    if (idx % (int)ofRandom(1, 10) == 0) {
+    if (idx % randomVals[0] == 0) {
       ofDrawCircle(xPos - (1 + i), yPos, radius - (1 + i));
       ofDrawCircle(xPos + (1 + i), yPos, radius - (1 + i));
       ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
       ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
-    } else if (idx % (int)ofRandom(1, 10) == 0) {
+    } else if (idx % randomVals[1] == 0) {
       ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
       ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
-    } else if (idx % (int)ofRandom(1, 10) == 0) {
+    } else if (idx % randomVals[2] == 0) {
       ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
-    } else if (idx % (int)ofRandom(1, 10) == 0) {
+    } else if (idx % randomVals[3] == 0) {
       ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
       ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
-    } else if (idx % (int)ofRandom(1, 10) == 0) {
+    } else if (idx % randomVals[4] == 0) {
       ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
       ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
-    } else if (idx % (int)ofRandom(1, 10) == 0) {
+    } else if (idx % randomVals[5] == 0) {
       ofDrawCircle(xPos + (1 + i), yPos, radius - (1 + i));
       ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
     } else {
