@@ -3,9 +3,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+  ofSetFrameRate(60);
+
   for (int x = 0; x < 32; x++) {
     for (int y = 0; y < 32; y++) {
-      circles[x][y].setup(x, y);
+      circles[x][y].setup(x, y, (y * 32) + x);
     }
   }
 }

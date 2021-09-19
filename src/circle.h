@@ -6,12 +6,16 @@
 class Circle {
 
   public:
+    int xIdx;
+    int yIdx;
+    int idx;
+
     int xPos;
     int yPos;
     int radius;
     ofColor color;
 
-    void setup(int x, int y);
+    void setup(int x, int y, int i);
     void update();
     void draw1();
     void draw2();
