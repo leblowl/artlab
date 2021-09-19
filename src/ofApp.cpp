@@ -3,8 +3,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
-  for (int x = 0; x < 10; x++) {
-    for (int y = 0; y < 10; y++) {
+  for (int x = 0; x < 32; x++) {
+    for (int y = 0; y < 32; y++) {
       circles[x][y].setup(x, y);
     }
   }
@@ -17,9 +17,9 @@ void ofApp::update() {
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-  for (int x = 0; x < 10; x++) {
-    for (int y = 0; y < 10; y++) {
-      circles[x][y].draw();
+  for (int x = 0; x < 32; x++) {
+    for (int y = 0; y < 32; y++) {
+      circles[x][y].draw8();
     }
   }
 }

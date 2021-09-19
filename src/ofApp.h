@@ -7,7 +7,7 @@ class ofApp : public ofBaseApp {
 
   public:
 
-    Circle circles[10][10];
+    Circle circles[100][100];
 
     void setup();
     void update();
