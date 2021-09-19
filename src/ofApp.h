@@ -1,11 +1,13 @@
 #pragma once
 
 #include "ofMain.h"
+#include "circle.h"
 
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp {
 
   public:
-    int radius;
+
+    Circle circles[10][10];
 
     void setup();
     void update();
