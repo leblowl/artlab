@@ -14,6 +14,7 @@ class Circle {
     int yPos;
     int radius;
     ofColor color;
+    ofColor altColor;
 
     std::vector<int> randomVals;
 

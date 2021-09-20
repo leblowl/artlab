@@ -25,7 +25,7 @@ void ofApp::update() {
 void ofApp::draw() {
   for (int x = 0; x < 32; x++) {
     for (int y = 0; y < 32; y++) {
-      circles[x][y].draw8();
+      circles[x][y].draw9();
     }
   }
 }

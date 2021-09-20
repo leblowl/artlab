@@ -9,6 +9,7 @@ void Circle::setup(int x, int y, int i) {
   yPos = radius + (2 * y * (radius + 1));
 
   color.set(ofRandom(255), ofRandom(255), ofRandom(255));
+  altColor.set(ofRandom(255), ofRandom(255), ofRandom(255));
 
   randomVals = std::vector<int>{
     (int)ofRandom(1, 10),
@@ -25,6 +26,7 @@ void Circle::update() {
     for (int i = 0; i < 6; i++) {
       randomVals[i] = (int)ofRandom(1, 10);
     }
+    altColor.set(ofRandom(255), ofRandom(255), ofRandom(255));
   }
 }
 
@@ -147,6 +149,48 @@ void Circle::draw8() {
   ofDrawCircle(xPos, yPos, radius);
   for (int i = 0; i < 30; i++) {
     ofColor colorInner = color;
+    colorInner.setSaturation(colorInner.getSaturation() - 100);
+    colorInner.setBrightness(colorInner.getBrightness() + 50);
+    colorInner.setHue(colorInner.getHue() + (i * 7));
+    if (i % 2 == 0) {
+      colorInner.r = 0;
+    } else if (i % 3 == 0) {
+      colorInner.g = 0;
+    } else {
+      colorInner.b = 0;
+    }
+    ofSetColor(colorInner);
+    if (idx % randomVals[0] == 0) {
+      ofDrawCircle(xPos - (1 + i), yPos, radius - (1 + i));
+      ofDrawCircle(xPos + (1 + i), yPos, radius - (1 + i));
+      ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
+      ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
+    } else if (idx % randomVals[1] == 0) {
+      ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
+      ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
+    } else if (idx % randomVals[2] == 0) {
+      ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
+    } else if (idx % randomVals[3] == 0) {
+      ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
+      ofDrawCircle(xPos, yPos - (1 + i), radius - (1 + i));
+    } else if (idx % randomVals[4] == 0) {
+      ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
+      ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
+    } else if (idx % randomVals[5] == 0) {
+      ofDrawCircle(xPos + (1 + i), yPos, radius - (1 + i));
+      ofDrawCircle(xPos, yPos + (1 + i), radius - (1 + i));
+    } else {
+      ofDrawCircle(xPos + (1 + i), yPos, radius - (1 + i));
+      ofDrawCircle(xPos - (1 + i), yPos, radius - (1 + i));
+    }
+  }
+}
+
+void Circle::draw9() {
+  ofSetColor(altColor);
+  ofDrawCircle(xPos, yPos, radius);
+  for (int i = 0; i < 30; i++) {
+    ofColor colorInner = altColor;
     colorInner.setSaturation(colorInner.getSaturation() - 100);
     colorInner.setBrightness(colorInner.getBrightness() + 50);
     colorInner.setHue(colorInner.getHue() + (i * 7));
